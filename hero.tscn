@@ -1,0 +1,249 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://hero.gd" type="Script" id=1]
+[ext_resource path="res://sprites/reactor/reactor_particle.png" type="Texture" id=2]
+[ext_resource path="res://sprites/hero/red/1.png" type="Texture" id=3]
+[ext_resource path="res://sprites/hero/red/2.png" type="Texture" id=4]
+[ext_resource path="res://sprites/hero/red/3.png" type="Texture" id=5]
+[ext_resource path="res://sprites/hero/red/4.png" type="Texture" id=6]
+[ext_resource path="res://sprites/hero/green/1.png" type="Texture" id=7]
+[ext_resource path="res://sprites/hero/green/2.png" type="Texture" id=8]
+[ext_resource path="res://sprites/hero/green/3.png" type="Texture" id=9]
+[ext_resource path="res://sprites/hero/green/4.png" type="Texture" id=10]
+[ext_resource path="res://fx/long_hit.ogg" type="AudioStream" id=11]
+[ext_resource path="res://fx/switch.ogg" type="AudioStream" id=12]
+[ext_resource path="res://fx/switch_2.ogg" type="AudioStream" id=13]
+
+[sub_resource type="ParticlesMaterial" id=1]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = false
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, -9.8, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.0
+angular_velocity = 7.37083e-043
+angular_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+
+[sub_resource type="CanvasItemMaterial" id=2]
+
+render_priority = 0
+next_pass = SubResource( 1 )
+blend_mode = 1
+light_mode = 0
+
+[sub_resource type="ParticlesMaterial" id=3]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Resource", "Trail" ]
+
+[sub_resource type="SpriteFrames" id=4]
+
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 4.0
+} ]
+
+[sub_resource type="SpriteFrames" id=5]
+
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 4.0
+} ]
+
+[node name="heros" type="Area2D"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
+speed = 800
+speed_boost = 200
+boost_limit = 400
+
+[node name="collision" type="CollisionPolygon2D" parent="." index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 32.5449, 19.4426, 20.389, 0.130986, 36.9275, 5.78338, 43.522, 4.73664, 47.2902, 4.84132, 53.2567, 5.05066, 56.8156, 3.89925, 60.9451, 6.03138, 80.4719, 0.0263128, 69.4811, 17.2975, 76.5661, 17.902, 80.4719, 18.1349, 77.9647, 22.4475, 71.561, 25.7628, 68.1745, 30.1398, 62.3081, 30.9033, 59.7379, 36.3008, 60.2519, 55.9631, 58.7098, 59.1759, 58.9668, 63.8024, 58.5592, 69.3005, 56.6361, 73.6711, 53.3144, 75.5942, 46.1466, 75.5942, 42.8249, 70.8739, 41.9508, 66.1536, 42.1256, 59.3355, 39.5033, 54.2655, 39.6781, 46.5733, 40.0277, 34.5104, 34.9578, 30.4894, 20.1491, 19.6668, 21.0035, 17.8156 )
+
+[node name="reactor_left" type="Particles2D" parent="." index="1"]
+
+modulate = Color( 0.398438, 0.386854, 0.0949402, 1 )
+material = SubResource( 2 )
+position = Vector2( 40.6728, 13.1991 )
+rotation = -3.14159
+scale = Vector2( 0.4885, 0.410508 )
+emitting = true
+amount = 10
+lifetime = 1.0
+one_shot = false
+preprocess = 1.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 3 )
+texture = ExtResource( 2 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Time", "Transform", "Visibility", "Z Index" ]
+
+[node name="reactor_right" type="Particles2D" parent="." index="2"]
+
+modulate = Color( 0.398438, 0.386854, 0.0949402, 1 )
+material = SubResource( 2 )
+position = Vector2( 58.1875, 12.8409 )
+rotation = -3.14159
+scale = Vector2( 0.4885, 0.410508 )
+emitting = true
+amount = 10
+lifetime = 1.0
+one_shot = false
+preprocess = 1.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 3 )
+texture = ExtResource( 2 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Time", "Transform", "Visibility", "Z Index" ]
+
+[node name="red" type="AnimatedSprite" parent="." index="3"]
+
+position = Vector2( -3.9014, -2.53697 )
+scale = Vector2( 1.6413, 1.31165 )
+frames = SubResource( 4 )
+animation = "default"
+frame = 3
+playing = true
+centered = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="green" type="AnimatedSprite" parent="." index="4"]
+
+position = Vector2( -3.9014, -2.53697 )
+scale = Vector2( 1.6413, 1.31165 )
+frames = SubResource( 5 )
+animation = "default"
+frame = 2
+playing = true
+centered = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="bomb" type="AudioStreamPlayer2D" parent="." index="5"]
+
+stream = ExtResource( 11 )
+volume_db = 5.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="switch_fx" type="AudioStreamPlayer2D" parent="." index="6"]
+
+stream = ExtResource( 12 )
+volume_db = 5.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="switch_fx2" type="AudioStreamPlayer2D" parent="." index="7"]
+
+position = Vector2( -0.15778, 0 )
+stream = ExtResource( 13 )
+volume_db = 5.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[connection signal="body_entered" from="." to="." method="_on_heros_body_entered"]
+
+

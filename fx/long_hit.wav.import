@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/long_hit.wav-6a42dc3277e1630aa8062c217e42aab5.sample"
+
+[deps]
+
+source_file="res://fx/long_hit.wav"
+source_md5="75724e0b3431efa0ab1ff6e4e194ad4a"
+
+dest_files=[ "res://.import/long_hit.wav-6a42dc3277e1630aa8062c217e42aab5.sample" ]
+dest_md5="9627e3453cc6ccfc54a80465928fd20d"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
