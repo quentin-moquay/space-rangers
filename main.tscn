@@ -18,438 +18,195 @@
 [ext_resource path="res://fx/title_voice.ogg" type="AudioStream" id=16]
 
 [sub_resource type="DynamicFont" id=1]
-
 size = 15
 use_mipmaps = true
-use_filter = false
 font_data = ExtResource( 12 )
-_sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=2]
-
 size = 15
-use_mipmaps = false
-use_filter = false
 font_data = ExtResource( 12 )
-_sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=3]
-
 size = 50
-use_mipmaps = false
-use_filter = false
 font_data = ExtResource( 12 )
-_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=4]
-
 size = 40
-use_mipmaps = false
-use_filter = false
 font_data = ExtResource( 12 )
-_sections_unfolded = [ "Font", "Resource", "Settings" ]
 
 [sub_resource type="DynamicFont" id=5]
-
 size = 20
-use_mipmaps = false
-use_filter = false
 font_data = ExtResource( 12 )
-_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[node name="root" type="Node2D" index="0"]
+[node name="root" type="Node2D"]
 
-_sections_unfolded = [ "Material" ]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
-
-layer = -1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-scroll_offset = Vector2( 0, 0 )
-scroll_base_offset = Vector2( 0, 0 )
-scroll_base_scale = Vector2( 1, 1 )
-scroll_limit_begin = Vector2( 0, 0 )
-scroll_limit_end = Vector2( 0, 0 )
-scroll_ignore_camera_zoom = false
-_sections_unfolded = [ "Pause", "Scroll" ]
-
-[node name="bg" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
-
-motion_scale = Vector2( 1, 1 )
-motion_offset = Vector2( 0, 0 )
+[node name="bg" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2( 0, 2400 )
-_sections_unfolded = [ "Motion", "Transform" ]
 
-[node name="background" type="Sprite" parent="ParallaxBackground/bg" index="0"]
-
+[node name="background" type="Sprite" parent="ParallaxBackground/bg"]
 position = Vector2( -1, 0 )
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 400, 2400 )
-_sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
 
-[node name="stars" type="ParallaxLayer" parent="ParallaxBackground" index="1"]
-
-motion_scale = Vector2( 1, 1 )
+[node name="stars" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_offset = Vector2( 0.5, 0.2 )
 motion_mirroring = Vector2( 0, 2400 )
-_sections_unfolded = [ "Motion", "Transform" ]
 
-[node name="stars" type="Sprite" parent="ParallaxBackground/stars" index="0"]
-
+[node name="stars" type="Sprite" parent="ParallaxBackground/stars"]
 texture = ExtResource( 2 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 400, 2400 )
-_sections_unfolded = [ "Offset" ]
 
-[node name="stars_2" type="ParallaxLayer" parent="ParallaxBackground" index="2"]
-
+[node name="stars_2" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 1, 0.5 )
 motion_offset = Vector2( 0.7, 0.6 )
 motion_mirroring = Vector2( 0, 2400 )
-_sections_unfolded = [ "Motion", "Transform" ]
 
-[node name="stars" type="Sprite" parent="ParallaxBackground/stars_2" index="0"]
-
+[node name="stars" type="Sprite" parent="ParallaxBackground/stars_2"]
 texture = ExtResource( 3 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 400, 2400 )
-_sections_unfolded = [ "Offset" ]
 
-[node name="stars_3" type="ParallaxLayer" parent="ParallaxBackground" index="3"]
-
+[node name="stars_3" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 1, 0.1 )
 motion_offset = Vector2( 0.7, 0.6 )
 motion_mirroring = Vector2( 0, 2400 )
-_sections_unfolded = [ "Motion", "Transform" ]
 
-[node name="stars" type="Sprite" parent="ParallaxBackground/stars_3" index="0"]
-
+[node name="stars" type="Sprite" parent="ParallaxBackground/stars_3"]
 texture = ExtResource( 4 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 400, 2400 )
-_sections_unfolded = [ "Offset" ]
 
-[node name="Timer" type="Timer" parent="." index="1"]
-
-process_mode = 1
+[node name="Timer" type="Timer" parent="."]
 wait_time = 0.75
-one_shot = false
-autostart = false
 script = ExtResource( 5 )
 
-[node name="music" type="AudioStreamPlayer" parent="." index="2"]
-
+[node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
-[node name="menu" type="AudioStreamPlayer" parent="." index="3"]
-
+[node name="menu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 volume_db = -4.0
-pitch_scale = 1.0
 autoplay = true
-mix_target = 0
-bus = "Master"
 
-[node name="viewport" type="ViewportContainer" parent="." index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="viewport" type="ViewportContainer" parent="."]
 margin_right = 400.0
 margin_bottom = 700.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-stretch = false
-stretch_shrink = 1
 
-[node name="travelling" type="Camera2D" parent="viewport" index="0"]
-
+[node name="travelling" type="Camera2D" parent="viewport"]
 anchor_mode = 0
-rotating = false
 current = true
-zoom = Vector2( 1, 1 )
-limit_left = -10000000
-limit_top = -10000000
-limit_right = 10000000
-limit_bottom = 10000000
-limit_smoothed = false
 drag_margin_h_enabled = false
 drag_margin_v_enabled = false
-smoothing_enabled = false
-smoothing_speed = 5.0
-offset_v = 0.0
-offset_h = 0.0
 drag_margin_left = 0.0
 drag_margin_top = 0.0
 drag_margin_right = 0.0
 drag_margin_bottom = 0.0
-editor_draw_screen = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource( 8 )
-_sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Material", "Offset", "Pause", "Smoothing", "Transform", "Visibility" ]
 bg_speed = 400
 
-[node name="hero" parent="viewport/travelling" index="0" instance=ExtResource( 9 )]
-
+[node name="hero" parent="viewport/travelling" instance=ExtResource( 9 )]
 position = Vector2( 156.963, 519.32 )
 speed_boost = 100
 
-[node name="gameover_fx" type="AudioStreamPlayer2D" parent="viewport/travelling/hero" index="2"]
-
+[node name="gameover_fx" type="AudioStreamPlayer2D" parent="viewport/travelling/hero"]
 stream = ExtResource( 10 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-max_distance = 2000.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
 
-[node name="hud2" type="Sprite" parent="viewport/travelling" index="1"]
-
+[node name="hud2" type="Sprite" parent="viewport/travelling"]
 position = Vector2( 1, 600 )
 z_index = 90
 texture = ExtResource( 11 )
 centered = false
-_sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
 
-[node name="hud" type="RichTextLabel" parent="viewport/travelling/hud2" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="hud" type="RichTextLabel" parent="viewport/travelling/hud2"]
 margin_left = 248.0
 margin_top = 20.0
 margin_right = 377.0
 margin_bottom = 82.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "[center]Score
 80000[/center]
 [center]Highscore
 4000[/center]"
-visible_characters = -1
-percent_visible = 1.0
-meta_underlined = true
-tab_size = 4
 text = "Score
 80000
 Highscore
 4000"
-scroll_active = true
-scroll_following = false
-selection_enabled = false
-override_selected_font_color = false
 script = ExtResource( 13 )
-_sections_unfolded = [ "BBCode", "custom_fonts" ]
 
-[node name="speed" type="RichTextLabel" parent="viewport/travelling/hud2" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="speed" type="RichTextLabel" parent="viewport/travelling/hud2"]
 margin_left = 26.0
 margin_top = 26.0
 margin_right = 118.0
 margin_bottom = 64.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
 bbcode_text = "[center]SPEED
 800[/center]"
-visible_characters = -1
-percent_visible = 1.0
-meta_underlined = true
-tab_size = 4
 text = "SPEED
 800"
-scroll_active = true
-scroll_following = false
-selection_enabled = false
-override_selected_font_color = false
-_sections_unfolded = [ "Anchor", "BBCode", "custom_colors", "custom_fonts" ]
 
-[node name="bomb" type="RichTextLabel" parent="viewport/travelling/hud2" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="bomb" type="RichTextLabel" parent="viewport/travelling/hud2"]
 margin_left = 134.0
 margin_top = 26.0
 margin_right = 226.0
 margin_bottom = 64.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
 bbcode_text = "[center]BOMB
 3[/center]"
-visible_characters = -1
-percent_visible = 1.0
-meta_underlined = true
-tab_size = 4
 text = "BOMB
 3"
-scroll_active = true
-scroll_following = false
-selection_enabled = false
-override_selected_font_color = false
-_sections_unfolded = [ "Anchor", "BBCode", "custom_colors", "custom_fonts" ]
 
-[node name="titre" type="RichTextLabel" parent="viewport/travelling/hud2" index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="titre" type="RichTextLabel" parent="viewport/travelling/hud2"]
 margin_left = 1.0
 margin_top = -500.0
 margin_right = 398.0
 margin_bottom = -270.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
 bbcode_text = "[center]
 [img]res://sprites/hero/hero.png[/img]SPACE RANGERS[img]res://sprites/hero/hero.png[/img]
 [/center]"
-visible_characters = -1
-percent_visible = 1.0
-meta_underlined = true
-tab_size = 4
 text = "
 SPACE RANGERS
 "
-scroll_active = true
-scroll_following = false
-selection_enabled = false
-override_selected_font_color = false
-_sections_unfolded = [ "BBCode", "Material", "Visibility", "custom_fonts" ]
 
-[node name="info" type="RichTextLabel" parent="viewport/travelling/hud2" index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="info" type="RichTextLabel" parent="viewport/travelling/hud2"]
 margin_top = -272.0
 margin_right = 399.0
 margin_bottom = -167.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 custom_fonts/normal_font = SubResource( 4 )
 bbcode_enabled = true
-bbcode_text = ""
-visible_characters = -1
-percent_visible = 1.0
-meta_underlined = true
-tab_size = 4
-text = ""
-scroll_active = true
-scroll_following = false
-selection_enabled = false
-override_selected_font_color = false
 script = ExtResource( 14 )
-_sections_unfolded = [ "BBCode", "Material", "Visibility", "custom_fonts" ]
 
-[node name="clignotant" type="RichTextLabel" parent="viewport/travelling/hud2" index="5"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="clignotant" type="RichTextLabel" parent="viewport/travelling/hud2"]
 margin_left = -1.0
 margin_top = -187.0
 margin_right = 399.0
 margin_bottom = -144.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 custom_fonts/normal_font = SubResource( 5 )
 bbcode_enabled = true
-bbcode_text = ""
-visible_characters = -1
-percent_visible = 1.0
-meta_underlined = true
-tab_size = 4
-text = ""
-scroll_active = true
-scroll_following = false
-selection_enabled = false
-override_selected_font_color = false
 script = ExtResource( 15 )
-_sections_unfolded = [ "Theme", "Visibility", "custom_fonts", "custom_styles" ]
 
-[node name="timer_clignotant" type="Timer" parent="viewport/travelling/hud2/clignotant" index="1"]
-
-process_mode = 1
+[node name="timer_clignotant" type="Timer" parent="viewport/travelling/hud2/clignotant"]
 wait_time = 0.6
-one_shot = false
-autostart = false
 
-[node name="spawn_pos" type="Position2D" parent="." index="5"]
+[node name="spawn_pos" type="Position2D" parent="."]
 
-_sections_unfolded = [ "Transform" ]
-
-[node name="title_voice" type="AudioStreamPlayer" parent="." index="6"]
-
+[node name="title_voice" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
 volume_db = -6.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
 [connection signal="timeout" from="Timer" to="Timer" method="_on_enemy_spawn"]
-
 [connection signal="timeout" from="viewport/travelling/hud2/clignotant/timer_clignotant" to="viewport/travelling/hud2/clignotant" method="_on_timer_clignotant_timeout"]
-
-
